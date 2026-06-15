@@ -1,10 +1,13 @@
 Neural Style Transfer using VGG19
+_____________________________________________________________________________________________________________
 
 Overview
 
 This project implements Neural Style Transfer (NST), a technique introduced by Gatys et al. that combines the content of one image with the artistic style of another image.
 The main idea is to preserve the structure and objects present in the content image while transferring artistic textures, colors, and patterns from a style image.
 For this implementation, I used a pre-trained VGG19 network as a fixed feature extractor and optimized the generated image using content loss and style loss.
+
+_____________________________________________________________________________________________________________
 
 Objective
 
@@ -13,6 +16,8 @@ How pre-trained convolutional neural networks can represent visual information.
 How content and style can be separated using feature maps.
 How Gram Matrices can be used to capture artistic style.
 How optimization can be performed directly on an image rather than on network weights.
+
+_____________________________________________________________________________________________________________
 
 Understanding the Approach
 
@@ -31,6 +36,8 @@ The Great Wave off Kanagawa
 3. Generated Image
 The image that is gradually optimized to contain both the content and style characteristics.
 
+_____________________________________________________________________________________________________________
+
 Why VGG19?
 
 VGG19 was chosen because it produces hierarchical feature representations at different depths of the network.
@@ -44,6 +51,8 @@ Objects
 Semantic structure
 This makes VGG19 highly suitable for separating content and style information.
 
+_____________________________________________________________________________________________________________
+
 Content Representation
 
 Content information is extracted from deeper convolutional layers.
@@ -55,6 +64,8 @@ Object shapes
 Spatial layout
 Overall scene structure
 The content loss ensures that the generated image preserves these characteristics.
+
+_____________________________________________________________________________________________________________
 
 Style Representation
 
@@ -74,6 +85,8 @@ To represent style, Gram Matrices were computed from the feature maps.
 Gram Matrices measure relationships between different feature maps rather than their exact locations.
 This allows the model to capture artistic textures independently of image structure.
 
+_____________________________________________________________________________________________________________
+
 Loss Functions
 
 Content Loss
@@ -83,6 +96,8 @@ Scene layout
 Object shapes
 Structural information
 
+_____________________________________________________________________________________________________________
+
 Style Loss
 
 Style Loss measures how different the generated image is from the style image.
@@ -91,6 +106,8 @@ Artistic textures
 Color distributions
 Visual patterns
 
+_____________________________________________________________________________________________________________
+
 Total Loss
 
 The final objective combines both losses:
@@ -98,6 +115,8 @@ Total Loss = Style Loss + Content Loss
 The balance between style and content is controlled using weighting parameters.
 A higher style weight produces stronger artistic effects.
 A higher content weight preserves more of the original image.
+
+_____________________________________________________________________________________________________________
 
 Optimization Process
 
@@ -110,6 +129,8 @@ Compute style loss.
 Compute total loss.
 Update the image pixels using Adam optimizer.
 This process continues until the generated image achieves a balance between content preservation and style transfer.
+
+_____________________________________________________________________________________________________________
 
 Experimental Results
 
@@ -133,9 +154,7 @@ The generated image successfully preserved the structure of the Golden Gate Brid
 The sky region showed the strongest style transfer effect, while major structural elements such as the bridge remained recognizable.
 
 
-
-
-
+_____________________________________________________________________________________________________________
 Experiment 2
 
 Content Image
@@ -156,7 +175,7 @@ The generated image preserved the bridge structure while introducing wave-like t
 Compared to the Van Gogh experiment, this output exhibited stronger texture transfer and more pronounced artistic edges.
 
 
-
+_____________________________________________________________________________________________________________
 
 Experiment 3
 
@@ -172,11 +191,15 @@ Generated Image
 
 [NeuroDiscoveryAi/Neural Style Transfer/Output_NST/output_styled_image6.jpg](https://github.com/mavericknihar/NeuroDiscoveryAi_Tasks/blob/main/NeuroDiscoveryAi/Neural%20Style%20Transfer/Output_NST/output_styled_image6.jpg)
 
+
+
 Observations
 
 This experiment explored style-to-style transfer.
 The output combined visual characteristics from both artworks, producing a hybrid appearance that contained swirling patterns from Starry Night and wave-inspired textures from The Great Wave.
 The resulting image demonstrated how Neural Style Transfer can blend multiple artistic styles into a single composition.
+
+_____________________________________________________________________________________________________________
 
 Challenges Faced
 
@@ -184,6 +207,8 @@ During implementation, several challenges were encountered:
 Balancing Style and Content
 Finding the correct balance between style loss and content loss required experimentation.
 Very high style weights often distorted the original content, while low style weights produced weak artistic effects.
+
+_____________________________________________________________________________________________________________
 
 Optimization Stability
 
@@ -195,6 +220,8 @@ Understanding Feature Representations
 One of the most interesting parts of this project was understanding how different VGG19 layers capture different levels of information and how Gram Matrices encode artistic style.
 
 
+_____________________________________________________________________________________________________________
+
 Key Learnings
 
 Through this project, I learned:
@@ -204,8 +231,11 @@ How Gram Matrices capture artistic textures.
 The difference between content and style representations.
 How optimization can be performed directly on images rather than model parameters.
 
+_____________________________________________________________________________________________________________
+
 References
 
 Gatys, L. A., Ecker, A. S., & Bethge, M. (2015). A Neural Algorithm of Artistic Style.
+
 PyTorch Documentation.
 
